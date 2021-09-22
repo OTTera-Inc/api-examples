@@ -46,7 +46,7 @@ function getHmacSignature(plaintext, key) {
   plaintext = plaintext.replaceAll(" ", "%20");
   plaintext = plaintext.replaceAll("+", "%2B");
   plaintext = plaintext.replaceAll(",", "%2C");
-  var hmac = CryptoJS.HmacSHA256(plaintext, key);
+  var hmac = CryptoJS.HmacSHA256(plaintext, key).toString();
   var base64EncodedHMAC = CryptoJS.enc.Base64.stringify(hmac);
   var percentEscapedHMAC = base64EncodedHMAC.replaceAll("+", "%2B");
   return percentEscapedHMAC;
